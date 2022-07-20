@@ -38,11 +38,13 @@ function validateNewLetter() {
     if (wordExpect == listLetters[count]) {
       wordProgress[count] = listLetters[count];
       result = true;
-    } else {  }
+    } else {
+    }
   }
   if (result == false) {
     bodyParts++;
     validateBody();
+    console.log("Essa letra não compõe a palavra!");
   }
 
   console.log(wordProgress);
@@ -64,7 +66,8 @@ function validadeWord(response) {
 // Conta o total de chances
 function validateChances() {
   if (countChance == 6) {
-    gameOver = trueconsole.log("Game Over");
+    gameOver = true;
+    console.log("Game Over");
   } else {
     // New letter
   }
