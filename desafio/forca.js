@@ -7,6 +7,7 @@ let word = "";
 let response = "";
 let listLetters = [];
 let wordProgress = [];
+let tentativasFalhas = []; // preciso fazer esse array segurar as letras erradas e mostrar elas atualizadas a cada tentativa
 let gameOver = "Game Over";
 let countChance = 0;
 let bodyParts = 0;
@@ -42,13 +43,13 @@ function validateNewLetter() {
     }
   }
   if (result == false) {
-    bodyParts++;
+    bodyParts++; // por algum motivo as partes estão sendo contadas mesmo quando se acerta a letra na tentativa
     validateBody();
     console.log("Essa letra não compõe a palavra!");
   }
 
   console.log(wordProgress);
-  countChance++;
+  countChance++; // preciso mostrar o valor da contagens de chances a cada alteração para o jogador saber quantas tentativas ainda restam
 
   validateChances();
 }
