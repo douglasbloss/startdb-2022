@@ -42,7 +42,7 @@ function validateLetter() {
   }
 
   if (valid == true) {
-    console.log("Letra já utlizada, tente outra! " + oldLetters);
+    console.log("Letra já utilizada, tente outra! " + oldLetters);
   } else {
     oldLetters.push(letter);
     validateNewLetter(letter);
@@ -64,6 +64,9 @@ function validateNewLetter(letter) {
     bodyParts++;
     validateBody();
     console.log("Essa letra não compõe a palavra!");
+    // Contador de chances reduz conforme erra os chutes de letras
+    countChance--;
+    console.log("Total de tentativas 6 | Restantes: " + countChance);
   }
 
   // Verifica se as letras escolhidas completam a palavra. (Valido apenas para palavras com até 6 caracteres)
@@ -72,11 +75,7 @@ function validateNewLetter(letter) {
   } else {
     // Continua
   }
-
-  // Indica o contador total de chances e atualiza e subtrai a cada tentativa falha
   console.log(wordProgress);
-  countChance--;
-  console.log("Total de tentativas 6 | Restantes: " + countChance);
 }
 
 // Valida a palavra se tentar responder
@@ -119,6 +118,9 @@ function validateBody() {
       break;
     case 6:
       console.log("Um corpo completo na forca!");
+      break;
+    case valueN:
+      console.log("Algum erro ocorreu, comece de novo!");
       break;
   }
   if (bodyParts == 6) {
